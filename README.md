@@ -18,7 +18,6 @@ This is a project created by Harsh Jain.
     ->  `npm install`
     ->  `npm run serve`
 
-# deployed url
-
+# deployed url : https://cheers-beers.vercel.app/
     
 
