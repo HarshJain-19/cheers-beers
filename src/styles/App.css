@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
+
+.brand {
+  font-family: 'Single Day', cursive;
+  color: red;
+  font-size: 1.7rem;
+}
+.brand:hover {
+  color: red;
+}
+.brand:hover > img {
+  transform: translateY(-5px);
+}
+.trans {
+  background-color: transparent;
+}
+.main {
+  margin: 1rem 2%;
+  width: 96vw;
+  display: flex; flex-flow: row wrap; 
+  justify-content: space-around;
+}
+.fav-body {
+  width: 50px;
+  position: absolute; top: 0; right: 0;
+}
+.card-img {
+  margin: 0.3rem auto;
+  display: block;
+  width: auto; height: 200px;
+  cursor: pointer;
+}
+.search {
+  border-radius: 47px;
+  background: #dfdddd;
+  box-shadow: inset 13px 13px 27px #9e9d9d,
+              inset -13px -13px 27px #ffffff;
+}
+.search:focus {
+  border-radius: 47px;
+background: linear-gradient(145deg, #e1e1e1, #ffffff);
+box-shadow:  8px 8px 11px #077186,
+             -8px -8px 11px #13ffffb7;
+}
+.img-card {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+.img-card:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
