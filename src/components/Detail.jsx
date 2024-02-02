@@ -1,10 +1,11 @@
 import React, { useEffect, useState  } from 'react';
 import '../styles/details.css'
 import axios from 'axios';  
+import Empty from './Empty';
 
 const Detail = (props) => {
 
-    const [beerData, setBeerData] = useState({id:0});
+    const [beerData, setBeerData] = useState({});
     const [ingre, setIngre] = useState({});
     const link = 'https://api.punkapi.com/v2/beers';
 
@@ -23,7 +24,9 @@ const Detail = (props) => {
     }, []);
 
   return (
-      <div className='detail-box'>
+    Object.keys(beerData).length ? 
+    <>
+    <div className='detail-box'>
       <div className='part-one'>
         <a href={beerData.image_url} className='my-4'>
             <img src={beerData.image_url} alt="" />
@@ -46,7 +49,7 @@ const Detail = (props) => {
             <span className='q'>abv :</span> {beerData.abv}
         </div>
         <div className="detail-item" title='International Bitterness Unit'>
-            <span className='q'>ibu</span> {beerData.ibu}
+            <span className='q'>ibu: </span> {beerData.ibu}
         </div>
         <div className="detail-item">
             <span className='q'>ph :</span> {beerData.ph}
@@ -63,6 +66,7 @@ const Detail = (props) => {
 
       </div>
     </div>
+    </> : <Empty />
   )
 }
 

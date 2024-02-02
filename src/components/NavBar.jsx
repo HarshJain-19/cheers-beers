@@ -24,16 +24,25 @@ function NavBar() {
     else if (newValue=='details') 
       return navigate('/details');
     else 
-      return navigate('/favourites');
+      return navigate('/favorites');
   };
 
-  // useEffect(() => {
-  //   setValue(location.pathname);
-  //   console.log(location.pathname);
-  // }, [location.pathname]);
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setValue('home');
+        break;
+      case "/details":
+        setValue('details');
+        break;
+      case "/favorites":
+        setValue('favorites');
+    }
+    console.log(location.pathname);
+  }, [location.pathname]);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary" >
       <Container fluid className='px-4 py-2 bg-info fs-5 fw-bold'>
         <Navbar.Brand href='/' className='brand'><img src="/media/beer icon.png" alt="" height='25px' className='px-2'/>Cheers-Beers</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

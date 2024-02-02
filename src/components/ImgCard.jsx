@@ -17,10 +17,10 @@ function ImgCard(props) {
     return navigate('/details');
   }
   const changeFavList= () => {
-    if (props.favourites.indexOf(props.cardData.id)===-1) 
-      props.changeFavourites([...props.favourites,props.cardData.id]);
+    if (props.favorites.indexOf(props.cardData.id.toString())===-1) 
+      props.changeFavourites([...props.favorites,props.cardData.id.toString()]);
     else 
-      props.changeFavourites(props.favourites.filter(e => e!==props.cardData.id));
+      props.changeFavourites(props.favorites.filter(e => e!==props.cardData.id.toString()));
   }
   return (
     <Card style={{ width: '20rem' }} className='m-4 img-card' title={props.cardData.id}>
@@ -28,7 +28,7 @@ function ImgCard(props) {
         <Card.Img variant="top" src={props.cardData.imgurl} className='card-img' />
       </a>
       <div className="fav-body">
-        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{color: red[800],'&.Mui-checked': {color: red[600],},}} absolute='true' onClick={changeFavList} checked={props.favourites.indexOf(props.cardData.id)!==-1}
+        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{color: red[800],'&.Mui-checked': {color: red[600],},}} absolute='true' onClick={changeFavList} checked={props.favorites.indexOf(props.cardData.id.toString())!==-1}
         />
       </div>
       <Card.Body className=''>
