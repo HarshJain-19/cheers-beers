@@ -5,8 +5,6 @@ import Card from 'react-bootstrap/Card';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import { useNavigate } from 'react-router-dom';
 
 function ImgCard(props) {
@@ -24,14 +22,8 @@ function ImgCard(props) {
       props.changeFavorites(props.favorites.filter(e => e!==props.cardData.id.toString()));
   }
   return (
-    <OverlayTrigger
-      placement="left"
-      overlay={<Tooltip id="button-tooltip-2" style={{zIndex: '0'}}>{props.cardData.id}</Tooltip>}
-    > {({ ref, ...triggerHandler }) => (
-      <div>
-      <Card style={{ width: '20rem' }} className='m-4 img-card' {...triggerHandler}>
-      <div>
-        <a href={props.cardData.imgurl} className='card-img' ref={ref}>
+      <Card style={{ width: '20rem' }} className='m-4 img-card' title={props.cardData.id}>
+        <a href={props.cardData.imgurl} className='card-img'>
           <Card.Img variant="top" src={props.cardData.imgurl} className='card-img'/>
         </a>
         <div className="fav-body" title='Like'>
@@ -45,11 +37,7 @@ function ImgCard(props) {
           </Card.Text>
           <Button variant="outline-primary" onClick={checkDetails}>Detail...</Button>
         </Card.Body>
-        </div>
       </Card>
-      </div>
-    )}
-    </OverlayTrigger>
   );
 }
 
