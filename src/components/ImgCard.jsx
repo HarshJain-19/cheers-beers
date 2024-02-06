@@ -29,7 +29,7 @@ function ImgCard(props) {
       overlay={<Tooltip id="button-tooltip-2" style={{zIndex: '0'}}>{props.cardData.id}</Tooltip>}
     > {({ ref, ...triggerHandler }) => (
       <Card style={{ width: '20rem' }} className='m-4 img-card' {...triggerHandler}>
-        <a href={props.cardData.imgurl} className='card-img' ref={ref}>
+        <a href={props.cardData.imgurl} className='card-img' ref={ref} target='_black'>
           <Card.Img variant="top" src={props.cardData.imgurl} className='card-img'/>
         </a>
         <div className="fav-body" title='Like'>
