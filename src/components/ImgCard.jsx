@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { red } from '@mui/material/colors';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card'; 
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 function ImgCard(props) {
   const navigate = useNavigate(); 
@@ -18,27 +19,33 @@ function ImgCard(props) {
   }
   const changeFavList= () => {
     if (props.favorites.indexOf(props.cardData.id.toString())===-1) 
-      props.changeFavourites([...props.favorites,props.cardData.id.toString()]);
+      props.changeFavorites([...props.favorites,props.cardData.id.toString()]);
     else 
-      props.changeFavourites(props.favorites.filter(e => e!==props.cardData.id.toString()));
+      props.changeFavorites(props.favorites.filter(e => e!==props.cardData.id.toString()));
   }
   return (
-    <Card style={{ width: '20rem' }} className='m-4 img-card' title={props.cardData.id}>
-      <a href={props.cardData.imgurl} className='card-img'>
-        <Card.Img variant="top" src={props.cardData.imgurl} className='card-img' />
-      </a>
-      <div className="fav-body">
-        <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{color: red[800],'&.Mui-checked': {color: red[600],},}} absolute='true' onClick={changeFavList} checked={props.favorites.indexOf(props.cardData.id.toString())!==-1}
-        />
-      </div>
-      <Card.Body className=''>
-        <Card.Title>{props.cardData.name}</Card.Title>
-        <Card.Text style={{height: '100px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
-          {props.cardData.desc}
-        </Card.Text>
-        <Button variant="primary" onClick={checkDetails}>Detail...</Button>
-      </Card.Body>
-    </Card>
+    <OverlayTrigger
+      placement="left"
+      overlay={<Tooltip id="button-tooltip-2" style={{zIndex: '0'}}>{props.cardData.id}</Tooltip>}
+    > {({ ref, ...triggerHandler }) => (
+      <Card style={{ width: '20rem' }} className='m-4 img-card' {...triggerHandler}>
+        <a href={props.cardData.imgurl} className='card-img' ref={ref} target='_black'>
+          <Card.Img variant="top" src={props.cardData.imgurl} className='card-img'/>
+        </a>
+        <div className="fav-body" title='Like'>
+          <Checkbox {...label} icon={<FavoriteBorder />} checkedIcon={<Favorite />} sx={{color: red[800],'&.Mui-checked': {color: red[600],},}} absolute='true' onClick={changeFavList} checked={props.favorites.indexOf(props.cardData.id.toString())!==-1}
+          />
+        </div>
+        <Card.Body style={{textAlign: 'center', marginTop: '0.2rem'}}>
+          <Card.Title style={{fontWeight: '600', textTransform: 'capitalize', fontVariant: 'small-caps', textDecoration: 'underline solid'}}>{props.cardData.name}</Card.Title>
+          <Card.Text style={{height: '100px', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+            {props.cardData.desc}
+          </Card.Text>
+          <Button variant="outline-primary" onClick={checkDetails}>Detail...</Button>
+        </Card.Body>
+      </Card>
+    )}
+    </OverlayTrigger>
   );
 }
 

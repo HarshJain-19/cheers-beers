@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Empty = () => {
-  return (
-    <div className='nothing'>
-      Nothing Is Here...
-    </div>
-  )
-}
+    return <div className="nothing">Nothing Is Here...</div>;
+};
 
-export default Empty
+export default Empty;

@@ -1,7 +1,10 @@
+
 .detail-box {
     padding: 2rem 0;
     width: 100%;
-    display: flex; flex-flow: row wrap; justify-content: space-evenly;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly;
     background-color: #dfdddd;
 }
 .detail-box .part-one {
@@ -26,7 +29,9 @@
     font-weight: 500;
     border-radius: 54px;
 background: #dfdddd;
-box-shadow:  10px 10px 16px #9a9898,
+-webkit-box-shadow:  10px 10px 16px #9a9898,
+             -10px -10px 16px #ffffff;
+        box-shadow:  10px 10px 16px #9a9898,
              -10px -10px 16px #ffffff;
 }
 .q {

@@ -1,5 +1,15 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Workbench&display=swap');
 
+.nav {
+  background: rgba( 255, 255, 255, 0.35 );
+-webkit-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 5.5px );
+-webkit-backdrop-filter: blur( 5.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
 .brand {
   font-family: 'Single Day', cursive;
   color: red;
@@ -9,7 +19,9 @@
   color: red;
 }
 .brand:hover > img {
-  transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 .trans {
   background-color: transparent;
@@ -17,8 +29,11 @@
 .main {
   margin: 1rem 2%;
   width: 96vw;
-  display: flex; flex-flow: row wrap; 
-  justify-content: space-around;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; 
+  -ms-flex-pack: distribute; 
+      justify-content: space-around;
 }
 .fav-body {
   width: 50px;
@@ -33,18 +48,30 @@
 .search {
   border-radius: 47px;
   background: #dfdddd;
-  box-shadow: inset 13px 13px 27px #9e9d9d,
+  -webkit-box-shadow: inset 13px 13px 27px #9e9d9d,
+              inset -13px -13px 27px #ffffff;
+          box-shadow: inset 13px 13px 27px #9e9d9d,
               inset -13px -13px 27px #ffffff;
 }
 .search:focus {
   border-radius: 47px;
+background: -o-linear-gradient(305deg, #e1e1e1, #ffffff);
 background: linear-gradient(145deg, #e1e1e1, #ffffff);
-box-shadow:  8px 8px 11px #077186,
+-webkit-box-shadow:  8px 8px 11px #077186,
+             -8px -8px 11px #13ffffb7;
+        box-shadow:  8px 8px 11px #077186,
              -8px -8px 11px #13ffffb7;
 }
 .img-card {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  -webkit-box-shadow: rgba(17, 17, 26, 0.3) 0px 1px 0px, rgba(17, 17, 26, 0.2) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+          box-shadow: rgba(17, 17, 26, 0.3) 0px 1px 0px, rgba(17, 17, 26, 0.2) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  -webkit-transition: all 0.7s;
+  -o-transition: all 0.7s;
+  transition: all 0.7s;
+  border: 0.5px solid;
 }
 .img-card:hover {
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  -webkit-box-shadow: rgba(17, 17, 26, 0.3) 0px 8px 24px, rgba(17, 17, 26, 0.2) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+          box-shadow: rgba(17, 17, 26, 0.3) 0px 8px 24px, rgba(17, 17, 26, 0.2) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+  scale: 1.05;
 }
