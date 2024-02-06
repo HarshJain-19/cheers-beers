@@ -28,8 +28,9 @@ function ImgCard(props) {
       placement="left"
       overlay={<Tooltip id="button-tooltip-2" style={{zIndex: '0'}}>{props.cardData.id}</Tooltip>}
     > {({ ref, ...triggerHandler }) => (
-      <>
+      <div>
       <Card style={{ width: '20rem' }} className='m-4 img-card' {...triggerHandler}>
+      <div>
         <a href={props.cardData.imgurl} className='card-img' ref={ref}>
           <Card.Img variant="top" src={props.cardData.imgurl} className='card-img'/>
         </a>
@@ -44,8 +45,9 @@ function ImgCard(props) {
           </Card.Text>
           <Button variant="outline-primary" onClick={checkDetails}>Detail...</Button>
         </Card.Body>
+        </div>
       </Card>
-      </>
+      </div>
     )}
     </OverlayTrigger>
   );
